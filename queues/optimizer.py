@@ -17,6 +17,5 @@ def send_image_to_queue(image_path):
     optimize_image(image_path)
 
 
-
 channel.basic_qos(prefetch_count=1)
 channel.basic_consume(queue='image_queue', on_message_callback=send_image_to_queue)
